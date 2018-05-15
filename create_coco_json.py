@@ -66,7 +66,7 @@ if __name__=='__main__':
             result = [np.array(sum(poly, [])).clip(min = 0).tolist()]
 
             #bbox = [max(x2,0), max(y2,0), max(x1,0), max(y1,0)]
-            bbox = [max(x1,0), max(y1,0), min(x2,width) - max(x1,0), max(y2,height) - max(x1,0)]
+            bbox = [max(x1,0), max(y1,0), min(x2,width) - max(x1,0), min(y2,height) - max(y1,0)]
             
             ann_index+=1
             dic2 = {'segmentation': result, 'area': np.abs(area), 'iscrowd':0, 'image_id':i+2018000000, 'bbox':bbox, 'category_id': cat_id, 'id': ann_index}
